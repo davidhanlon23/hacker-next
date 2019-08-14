@@ -1,13 +1,18 @@
-import component from 'react';
 
-class Index extends component{
-    render(){
-        return(
-            <div>
+import { Component } from "react";
 
-            </div>
-        );
-    }
+class Index extends Component{
+
+	// getInitialProps(){
+
+	// }
+	render(){
+		return(
+			<div>
+				<h1> hacker next </h1>
+			</div>
+		);
+	}
 }
 
 export default Index;
