@@ -4,7 +4,8 @@ import fetch from "isomorphic-unfetch";
 import Error from "next/error";
 // eslint-disable-next-line no-unused-vars
 import Layout from "../components/Layout";
-
+// eslint-disable-next-line no-unused-vars
+import CommentList from "../components/CommentList";
 
 // eslint-disable-next-line no-undef
 class Story extends React.Component {
@@ -34,7 +35,7 @@ class Story extends React.Component {
 		}
 
 		return (
-			<Layout title={story.title}>
+			<Layout title={story.title} backButton={true}>
 				<main>
 					<h1 className="story-title"><a href={story.url}>{story.title}</a></h1>
 					<div className="story-details">
@@ -42,6 +43,10 @@ class Story extends React.Component {
 						<strong>{story.comments_count} comments</strong>
 						<strong>{story.time_ago} </strong>
 					</div>
+
+					{story.comments.length > 0 ? (
+						<CommentList comments={story.comments}/> )
+						: ( <div>No comments for this story</div> )}
 				</main>
 				<style jsx>
 					{`

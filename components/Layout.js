@@ -2,8 +2,9 @@
 import Link from "next/link";
 // eslint-disable-next-line no-unused-vars
 import Head from "next/head";
+import Router from "next/router";
 
-const Layout = ( { children, title , description } ) => (
+const Layout = ( { children, title , description, backButton } ) => (
 	<div>
 		<Head>
 			<title>{title}</title>
@@ -11,6 +12,7 @@ const Layout = ( { children, title , description } ) => (
 		</Head>
 		<div className="container">
 			<nav>
+				{backButton && <span className="back-button" onClick={()=>Router.back()}>&#x2b05;</span>}
 				<Link href="/">
 					<a>
 						<span className="main-title">Hacker Next</span>
@@ -41,6 +43,11 @@ const Layout = ( { children, title , description } ) => (
                 }
                 nav .main-title{
                     font-weight: bold;
+                }
+                nav .back-button{
+                    font-size: 1.5rem;
+                    padding-right: 1em;
+                    cursor:pointer;
                 }
             `}
 		</style>
