@@ -9,7 +9,7 @@ import Error from "next/error";
 import Layout from "../components/Layout";
 // eslint-disable-next-line no-unused-vars
 import Link from "next/link";
-import { RSA_NO_PADDING } from "constants";
+
 
 class Index extends Component{
 
@@ -30,6 +30,18 @@ class Index extends Component{
 			stories=[];
 		}
 		return{ page,stories };
+	}
+	componentDidMount(){
+		// eslint-disable-next-line no-undef
+		if( "serviceWorker" in navigator ){
+			// eslint-disable-next-line no-undef
+			navigator.serviceWorker.register( "/service-worker.js" ).then( registration =>{
+				console.log( "service worker registration successful", registration );
+			} )
+				.catch( err => {
+					console.warn( "service worker registration failed", err.message );
+				} );
+		}
 	}
 	render(){
 		const { stories, page } = this.props;
