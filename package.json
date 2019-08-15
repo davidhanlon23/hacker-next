@@ -9,7 +9,8 @@
     "build": "next build",
     "export": "next export",
     "deploy": "cd out && now --public",
-    "now-build": "next build && next export -o dist"
+    "now-build": "next build && next export -o dist",
+    "heroku-postbuild":"next build"
   },
   "repository": {
     "type": "git",
